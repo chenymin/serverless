@@ -47,10 +47,9 @@ layout: Doc
   - [Share Authorizer](#share-authorizer)
   - [Resource Policy](#resource-policy)
   - [Compression](#compression)
-  - [Stage specific setups](#stage-specific-setups)
-    - [AWS X-Ray Tracing](#aws-x-ray-tracing)
-    - [Tags / Stack Tags](#tags--stack-tags)
-    - [Logs](#logs)
+  - [AWS X-Ray Tracing](#aws-x-ray-tracing)
+  - [Tags / Stack Tags](#tags--stack-tags)
+  - [Logs](#logs)
 
 _Are you looking for tutorials on using API Gateway? Check out the following resources:_
 
@@ -1416,13 +1415,7 @@ provider:
     minimumCompressionSize: 1024
 ```
 
-## Stage specific setups
-
-**IMPORTANT:** Due to CloudFormation limitations it's not possible to enable API Gateway stage settings on existing deployments. Please remove your old API Gateway and re-deploy with your new stage configuration. Once done, subsequent deployments should work without any issues.
-
-Disabling settings might result in unexpected behavior. We recommend to remove and re-deploy your service without such stage settings.
-
-### AWS X-Ray Tracing
+## AWS X-Ray Tracing
 
 API Gateway supports a form of out of the box distributed tracing via [AWS X-Ray](https://aws.amazon.com/xray/) though enabling [active tracing](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-xray.html). To enable this feature for your serverless application's API Gateway add the following to your `serverless.yml`
 
@@ -1435,7 +1428,7 @@ provider:
     apiGateway: true
 ```
 
-### Tags / Stack Tags
+## Tags / Stack Tags
 
 API Gateway stages will be tagged with the `tags` and `stackTags` values defined at the `provider` level:
 
@@ -1450,7 +1443,7 @@ provider:
     tagKey: tagValue
 ```
 
-### Logs
+## Logs
 
 Use the following configuration to enable API Gateway logs:
 
